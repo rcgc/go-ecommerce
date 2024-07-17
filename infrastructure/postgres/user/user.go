@@ -6,7 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/rcgc/go-ecommerce/infraestructure/postgres"
+	"github.com/rcgc/go-ecommerce/infrastructure/postgres"
 	"github.com/rcgc/go-ecommerce/model"
 )
 

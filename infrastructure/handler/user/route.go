@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo/v4"
 
 	"github.com/rcgc/go-ecommerce/domain/user"
-	storageUser "github.com/rcgc/go-ecommerce/infraestructure/postgres/user"
+	storageUser "github.com/rcgc/go-ecommerce/infrastructure/postgres/user"
 )
 
 func NewRouter(e *echo.Echo, dbPool *pgxpool.Pool){

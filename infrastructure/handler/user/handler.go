@@ -3,7 +3,7 @@ package user
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/rcgc/go-ecommerce/domain/user"
-	"github.com/rcgc/go-ecommerce/infraestructure/handler/response"
+	"github.com/rcgc/go-ecommerce/infrastructure/handler/response"
 	"github.com/rcgc/go-ecommerce/model"
 )
 

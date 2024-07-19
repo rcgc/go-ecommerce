@@ -16,6 +16,7 @@ var fields = []string{
 	"id",
 	"email",
 	"password",
+	"is_admin",
 	"details",
 	"created_at",
 	"updated_at",

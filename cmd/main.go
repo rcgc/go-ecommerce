@@ -4,7 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/rcgc/go-ecommerce/infraestructure/handler/response"
+	"github.com/rcgc/go-ecommerce/infrastructure/handler"
+	"github.com/rcgc/go-ecommerce/infrastructure/handler/response"
 )
 
 func main(){
@@ -25,6 +26,7 @@ func main(){
 		log.Fatal(err)
 	}
 
+	handler.InitRoutes(e, dbPool)
 	_ = dbPool
 
 	err = e.Start(":"+os.Getenv("SERVER_PORT"))

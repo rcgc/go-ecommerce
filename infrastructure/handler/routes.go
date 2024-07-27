@@ -7,6 +7,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/labstack/echo/v4"
 
+	"github.com/rcgc/go-ecommerce/infrastructure/handler/invoice"
 	"github.com/rcgc/go-ecommerce/infrastructure/handler/login"
 	"github.com/rcgc/go-ecommerce/infrastructure/handler/paypal"
 	"github.com/rcgc/go-ecommerce/infrastructure/handler/product"
@@ -22,7 +23,7 @@ func InitRoutes(e *echo.Echo, dbPool *pgxpool.Pool) {
 	// C
 
 	// I
-	//invoice.NewRouter(e, dbPool)
+	invoice.NewRouter(e, dbPool)
 
 	// L
 	login.NewRouter(e, dbPool)

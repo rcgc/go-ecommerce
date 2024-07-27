@@ -4,9 +4,12 @@ import (
 	"context"
 	"database/sql"
 
+	"github.com/google/uuid"
+	"github.com/rcgc/go-ecommerce/infrastructure/postgres"
+
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/rcgc/go-ecommerce/infrastructure/postgres"
+
 	"github.com/rcgc/go-ecommerce/model"
 )
 
@@ -31,9 +34,9 @@ type User struct {
 	db *pgxpool.Pool
 }
 
-// New return a new User storage
+// New returns a new User storage
 func New(db *pgxpool.Pool) User {
-	return User{db: db}
+	return User{db}
 }
 
 // Create creates a model.User
@@ -54,6 +57,17 @@ func (u User) Create(m *model.User) error {
 	}
 
 	return nil
+}
+
+func (u User) GetByID(ID uuid.UUID) (model.User, error) {
+	query := psqlGetAll + " WHERE id = $1"
+	row := u.db.QueryRow(
+		context.Background(),
+		query,
+		ID,
+	)
+
+	return u.scanRow(row, false)
 }
 
 func (u User) GetByEmail(email string) (model.User, error) {
